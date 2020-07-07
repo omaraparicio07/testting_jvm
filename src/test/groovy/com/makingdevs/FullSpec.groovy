@@ -4,6 +4,13 @@ import spock.lang.*
 
 class FullSpec extends Specification {
 
+  def setup() { println 'Setup' } // Se ejevuta antes cada spec definido
+  def cleanup() { println 'Cleanup' }  //Despues de cada spec definido
+  def setupSpec() { println 'setupSpec' } //Antes de todos los  spec definidos en la clase
+  def cleanupSpec(){ println 'cleanupSpec' } // Despues de todos los spec definidos en la clase
+
+
+
   @Unroll("Cuando #a se convierte a mayusculas es #b con longitud #result")
   def "Mostrar el ciclo de ejecución de spock" () {
     setup: "Inicializa los recursos para la especificación"
@@ -26,5 +33,18 @@ class FullSpec extends Specification {
     a      | b        | result
     'hola' | 'HOLA'   | 4
     'mundo'| 'MUNDO'  | 5
+  }
+
+  def "Dado un estimulo al sistema se espera una respuesta" (){
+    expect: "Mostrando groovy Truth"
+      [1]
+      ["uno":1]
+      "No empty"
+      -1
+      1
+      true
+      1.3
+      new Object()
+
   }
 }
