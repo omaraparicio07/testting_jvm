@@ -4,7 +4,7 @@ import spock.lang.*
 
 class FullSpec extends Specification {
 
-  @Unroll
+  @Unroll("Cuando #a se convierte a mayusculas es #b con longitud #result")
   def "Mostrar el ciclo de ejecución de spock" () {
     setup: "Inicializa los recursos para la especificación"
       println "Inicializando ..."
